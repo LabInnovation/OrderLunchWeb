@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="javascript: void(0);">Dashboard</a>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="row">
+          <h1>Class 1</h1>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">1A</div>
+              <div class="panel-body" id="1A">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">1B</div>
+              <div class="panel-body" id="1B">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">1C</div>
+              <div class="panel-body" id="1C">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h1>Class 2</h1>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">2A</div>
+              <div class="panel-body" id="2A">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">2B</div>
+              <div class="panel-body" id="2B">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">2C</div>
+              <div class="panel-body" id="2C">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h1>Class 3</h1>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">3A</div>
+              <div class="panel-body" id="3A">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">3B</div>
+              <div class="panel-body" id="3B">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">3C</div>
+              <div class="panel-body" id="3C">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+    $.ajax({
+            url: 'http://api.orderlunch.ml/order/views',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data.message);
+                for(var i = 0; i < data.message.length; i++){
+                  var studentId = data.message[i].studentId;
+                  var studentNumber = data.message[i].studentNumber;
+                  var mealNumber = data.message[i].mealNumber;
+
+                  switch (mealNumber)
+                    {
+                    case "1A":
+                      $("#1A").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "1B":
+                      $("#1B").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "1C":
+                      $("#1C").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "2A":
+                      $("#2A").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "2B":
+                      $("#2B").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "2C":
+                      $("#2C").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "3A":
+                      $("#3A").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "3B":
+                      $("#3B").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    case "3C":
+                      $("#3C").append(studentId +" - No." + studentNumber + "<br />")
+                      break;
+                    }
+                  }
+
+            }
+        });
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
